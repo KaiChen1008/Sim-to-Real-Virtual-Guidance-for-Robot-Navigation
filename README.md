@@ -8,7 +8,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 
 - Automatically navigate the robot to a specific goal without any high-cost sensors.
 - Based on a single camera and use deep learning methods.
-- Use Sim-to-Real technology to eliminate the gap between virtual environment and real world.
+- Use Sim-to-Real technique to eliminate the gap between virtual environment and real world.
 - Introduce Virtual guidance to entice the agent to move toward a specific direction.
 - Use Reinforcement learning to avoid obstacles while driving through crowds of people.
 
