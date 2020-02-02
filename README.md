@@ -1,6 +1,6 @@
 # Sim-to-Real Virtual Guidance for Robot Navigation
 
-[![documentation_link](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://hackmd.io/@dppa1008/r1L8e6AZI/)
+[![documentation_link](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/)
 
 An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks.
 
