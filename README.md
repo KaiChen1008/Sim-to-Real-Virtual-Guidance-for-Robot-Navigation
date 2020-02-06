@@ -34,11 +34,11 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 
 ## Documentation
 
-See [here](https://hackmd.io/@dppa1008/virtual_guidance_for_robot_navigation/).
+See [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/).
 
 ## Installation
 
-Please refer to [Manual](https://hackmd.io/@dppa1008/virtual_guidance_for_robot_navigation/https%3A%2F%2Fhackmd.io%2F%40dppa1008%2FSkxAOxyf8)
+Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/installation/ros.html)
 
 ## Usage
-Please refer to [Manual](https://hackmd.io/@dppa1008/virtual_guidance_for_robot_navigation/https%3A%2F%2Fhackmd.io%2F%40dppa1008%2FSkxAOxyf8)
+Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/Usage/build_map.html)
