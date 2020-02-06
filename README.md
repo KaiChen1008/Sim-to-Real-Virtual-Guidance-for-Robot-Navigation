@@ -41,4 +41,4 @@ See [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-
 Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/installation/ros.html)
 
 ## Usage
-Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/Usage/build_map.html)
+Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/usage/build_map.html)
