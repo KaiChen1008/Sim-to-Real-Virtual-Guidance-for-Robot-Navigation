@@ -1,4 +1,5 @@
 from __future__ import print_function
+import argparse
 import sys
 import rospy
 import os 
@@ -93,8 +94,11 @@ class PolicyModel:
 			self.RLmodel.restore_and_run(fake_image)
 
 if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	parser.add_argument('--port', type=str, help='connected port', dest='port', default='5555')
+	args = parser.parse_args()
 	rospy.init_node('control_model', anonymous=True)
-	hub = imagezmq.ImageHub()
+	hub = imagezmq.ImageHub(open_port='tcp://*:%s' %(args.port))
 	cm = PolicyModel()
 
 	while True:
