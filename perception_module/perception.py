@@ -1,7 +1,10 @@
 # Lint as: python3
 # ==============================================================================
 """Run to start the perception module.
-Add o for outdoor, i for indoor.
+Usage: 
+python perception.py -m <model> -ip <input_ip> -io <input_port> -op <output_ip> -oo <output_port>
+python perception.py --model=<model> --input_ip=<input_ip> --input_port=<input_port> --output_ip=<output_ip> --output_port=<output_port>
+if not specified, runs on default arguments.
 A zmq listener listens for images from the camera.
 A zmq listener listens for direction vector from the planner
 A zmq sender sends the segmentation image to control policy module.
@@ -27,23 +30,25 @@ class zmq_node:
 	Args:
 	  model: i or indoor for indoor model trained on ADE20K dataset
 		 o or outdoor for outdoor model trained on Cityscapes datset
+	  sender_ip: zmq sender ip to the control policy module
+	  sender_port: zmq sender port to the control policy module
+	  reciever_ip: zmq listener ip from the camera and planner
+	  reciever_port: zmq listener port from the camera and planner
 	Returns:
 	  Sends a segmentated image with the Virtual guide to specified port and ip.
 	Raises:
 	  Not receive image or vector: Upon invalid data recieved.
 	"""
-	def __init__(self,model):
+	def __init__(self,model,sender_ip,sender_port,reciever_ip,reciever_port):
 		#configurations for tensorflow
 		config = tf.ConfigProto(log_device_placement=False, allow_soft_placement=True)
 		config.gpu_options.allow_growth = True
 
-		#ip and port for sender.
-		self.ip = '192.168.0.198'
-		self.port = '5555'
-		self.sender = imagezmq.ImageSender(connect_to='tcp://%s:%s'%(self.ip, self.port))
+		#sender.
+		self.sender = imagezmq.ImageSender(connect_to='tcp://%s:%s'%(sender_ip, sender_port))
 
-		#configuration for reciever.
-		self.image_hub = imagezmq.ImageHub(open_port='tcp://*:6666')
+		#reciever.
+		self.image_hub = imagezmq.ImageHub(open_port='tcp://%s:%s'%(reciever_ip, reciever_port))
 
 		#choose indoor or outdoor model
 		if(model=='i' or model=='indoor'):
@@ -51,7 +56,7 @@ class zmq_node:
 		elif(model=='o' or model=='outdoor'):
 			self.model = 'o'
 		else:
-			print('Please input "indoor" or "outdoor".')
+			print('Please choose model "indoor" or "outdoor". Outdoor is chosen on defalt.')
 		if(self.model == 'i'):
 			self.MODEL = inference.DeepLabModel('models/mobilev2indoor_stride16_90000.tar.gz')
 		else:
@@ -147,11 +152,42 @@ class zmq_node:
 		cv2.imshow('frame', color_and_mask)
 
 
-def main(args):
-	server = zmq_node(args[1])
+def main(argv):
+	model = "outdoor"
+	input_ip = '*'
+	input_port = '6666'
+	output_ip = '192.168.0.198'
+	output_port = '5555'
+	try:
+		opts, args = getopt.getopt(argv,"-h-m:-ip:-io:-op:-oo:",["help","model=","input_ip=","input_port=","output_ip=","output_port="])
+	except getopt.GetoptError:
+		print('GetoptError, usage: perception.py --m <model> -ip <input_ip> -io <input_port> -op <output_ip> -oo <output_port>')
+		sys.exit(2)
+	for opt, arg in opts:
+		if opt in ('-h','--help'):
+			print("Run to start the perception module.\n\
+Usage: perception.py -m <model> -ip <input_ip> -io <input_port> -op <output_ip> -oo <output_port>\n\
+or perception.py --model=<model> --input_ip=<input_ip> --input_port=<input_port> --output_ip=<output_ip> --output_port=<output_port>\n\
+Arguments: o for outdoor model, i for indoor model.")
+			sys.exit()
+		elif opt in ('-m','--model'):
+			if opt in ('o','i','outdoor','indoor'):
+				model = arg
+			else:
+				print('Please chose model "indoor" or "outdoor". Outdoor is chosen on defalt.')
+				sys.exit()
+		elif opt in ('-ip','--input_ip'):
+			input_ip = arg
+		elif opt in ('-io','--input_port'):
+			input_port = arg
+		elif opt in ('-oi','--output_ip'):
+			output_ip = arg
+		elif opt in ('-oo','--output_port'):
+			output_port = arg
+	print("model: ",model, " input_ip: ", input_ip, " input_port: ", input_port, " output_ip: ", output_ip, " output_port: ", output_port)
+	server = zmq_node(model,output_ip,output_port,input_ip,input_port)
 	while True:
 		server.receive_image()
 	
-
 if __name__ == '__main__':
-	main(sys.argv)
+	main(sys.argv[1:])
