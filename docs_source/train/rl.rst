@@ -72,7 +72,7 @@ Training method
 **Virtual Environment**
 
 
-We create 20 different maps with various obstacles and random goals. In this way, the agent is able to simultaneously avoid obstacles and act accordingly with our virtual guidance scheme even in unfamiliar environments.
+We create 20 different maps with various obstacles and random goals. The full package can be downloaded `here <https://drive.google.com/file/d/1xYw3JfpTFHNeaovh_CIjARwDXeYZQVRq/>`_ . In this way, the agent is able to simultaneously avoid obstacles and act accordingly with our virtual guidance scheme even in unfamiliar environments.
 
 
 **Reward Function**
