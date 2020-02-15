@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. Robot Control &mdash; Sim-to-Real: Virtual Guidance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. How to Train an RL Agent" href="../train/rl.html" />
+    <link rel="prev" title="6. Control Policy Module" href="control_policy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Sim-to-Real: Virtual Guidance
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/how_it_works.html">2. How It Works</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/ros.html">1. ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/camera.html">2. ZED camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/slam.html">3. ORB-SLAM2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/control_policy.html">4. Control Policy Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/perception.html">5. Perception Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/navigation.html">6. Navigation Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="build_map.html">1. How to Build a Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">2. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">3. Perception Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">4. Localization Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planner.html">5. Planner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_policy.html">6. Control Policy Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Robot Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#launch-the-agv">7.1. Launch the AGV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-joystick-to-control-agv">7.2. Use Joystick To Control AGV</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Trainning Procedure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../train/rl.html">1. How to Train an RL Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../train/segmentation.html">2. How to Train a Segmentation Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sim-to-Real: Virtual Guidance</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>Robot Control</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/robot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="robot-control">
+<h1><span class="section-number">7. </span>Robot Control<a class="headerlink" href="#robot-control" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="launch-the-agv">
+<h2><span class="section-number">7.1. </span>Launch the AGV<a class="headerlink" href="#launch-the-agv" title="Permalink to this headline">¶</a></h2>
+<p>Before making AGV start navigation, you need to activate AGV to receive message from other distributed devices.</p>
+<p>Use ssh command to connect AGV device and execute the following commnad.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> rlenv/bin/activate
+
+<span class="o">(</span>rlenv<span class="o">)</span>$ python others/huskyListener.py
+</pre></div>
+</div>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">controller.py</span></code> in control policy module to start the nevigation.</p>
+</div>
+<div class="section" id="use-joystick-to-control-agv">
+<h2><span class="section-number">7.2. </span>Use Joystick To Control AGV<a class="headerlink" href="#use-joystick-to-control-agv" title="Permalink to this headline">¶</a></h2>
+<p>We also provide script that you can use joystick to control AGV. Please be sure you activate AGV device before using joystick.</p>
+<p>Before execute our code, you need to install pygame libarary and download communication.py from our github repository.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pygame
+</pre></div>
+</div>
+<p>Plug your joystick device into any other devices and execute code.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roscore
+<span class="nb">cd</span> others
+python j.py
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../train/rl.html" class="btn btn-neutral float-right" title="1. How to Train an RL Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="control_policy.html" class="btn btn-neutral float-left" title="6. Control Policy Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ken Lin
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

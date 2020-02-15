@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. How It Works &mdash; Sim-to-Real: Virtual Guidance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. ROS" href="../installation/ros.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Sim-to-Real: Virtual Guidance
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. How It Works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#perception-module">2.1. Perception Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#localization-module">2.2. Localization Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#planner-module">2.3. Planner Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-policy-module">2.4. Control Policy Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#details">2.5. Details</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/ros.html">1. ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/camera.html">2. ZED camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/slam.html">3. ORB-SLAM2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/control_policy.html">4. Control Policy Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/perception.html">5. Perception Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/navigation.html">6. Navigation Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/build_map.html">1. How to Build a Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/camera.html">2. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/perception.html">3. Perception Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/localization.html">4. Localization Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/planner.html">5. Planner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/control_policy.html">6. Control Policy Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/robot.html">7. Robot Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Trainning Procedure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../train/rl.html">1. How to Train an RL Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../train/segmentation.html">2. How to Train a Segmentation Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sim-to-Real: Virtual Guidance</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>How It Works</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/how_it_works.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-it-works">
+<h1><span class="section-number">2. </span>How It Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
+<p>Our framework consists of 4 parts:
+the Perception module, Localization module, Planner module, and Control policy module.</p>
+<div class="section" id="perception-module">
+<h2><span class="section-number">2.1. </span>Perception Module<a class="headerlink" href="#perception-module" title="Permalink to this headline">¶</a></h2>
+<p>The perception module translates the agent’s view (in this case, an image) into comprehensible segmented chunks.</p>
+<p>Google Deeplab V3 on NVIDIA Jetson Xavier is recommended in this project, but any semantic segmentation model can be used.</p>
+</div>
+<div class="section" id="localization-module">
+<h2><span class="section-number">2.2. </span>Localization Module<a class="headerlink" href="#localization-module" title="Permalink to this headline">¶</a></h2>
+<p>The localization module gives the current pose of the robot according to the environment features.</p>
+<p>We use ORB-SLAM2, a high accuracy visual SLAM algorithm that only requires the input of a single monocular camera.</p>
+</div>
+<div class="section" id="planner-module">
+<h2><span class="section-number">2.3. </span>Planner Module<a class="headerlink" href="#planner-module" title="Permalink to this headline">¶</a></h2>
+<p>The planner module generates a path according to the current robot’s pose and the goal based on the A* algorithm.</p>
+<p>It is also responsible for communicating with the perception module regarding the placement of the “virtual guide”.</p>
+</div>
+<div class="section" id="control-policy-module">
+<h2><span class="section-number">2.4. </span>Control Policy Module<a class="headerlink" href="#control-policy-module" title="Permalink to this headline">¶</a></h2>
+<p>The control policy module acts as a local planner in our framework. Simply put, it is a “robot controller”, which mainly focuses on avoiding obstacles and following the virtual guide, leading the robot to its goal.</p>
+<p>In the training phase, we employ the PPO (Proximal Policy Optimization) algorithm to train the agent. Furthermore, we set up a virtual environment using Unity to simulate the segmented images (real-world).</p>
+</div>
+<div class="section" id="details">
+<h2><span class="section-number">2.5. </span>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>For more details, please refer to our <a class="reference external" href="https://www.memtest86.com">technical report</a> .</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../installation/ros.html" class="btn btn-neutral float-right" title="1. ROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ken Lin
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

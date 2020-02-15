@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; Sim-to-Real: Virtual Guidance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. How It Works" href="how_it_works.html" />
+    <link rel="prev" title="Sim-to-Real Virtual Guidance for Robot Navigation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Sim-to-Real: Virtual Guidance
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro">1.1. Intro.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">1.2. Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_it_works.html">2. How It Works</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/ros.html">1. ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/camera.html">2. ZED camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/slam.html">3. ORB-SLAM2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/control_policy.html">4. Control Policy Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/perception.html">5. Perception Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/navigation.html">6. Navigation Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/build_map.html">1. How to Build a Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/camera.html">2. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/perception.html">3. Perception Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/localization.html">4. Localization Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/planner.html">5. Planner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/control_policy.html">6. Control Policy Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/robot.html">7. Robot Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Trainning Procedure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../train/rl.html">1. How to Train an RL Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../train/segmentation.html">2. How to Train a Segmentation Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sim-to-Real: Virtual Guidance</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intro">
+<h2><span class="section-number">1.1. </span>Intro.<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
+<p>we propose a new modular framework for addressing the reality gap in the vision domain and navigating a robot via virtual signals.
+Our robot uses a single monocular camera for navigation, without assuming any usage of LIDAR, stereo camera, or odometry information from the robot.</p>
+</div>
+<div class="section" id="features">
+<h2><span class="section-number">1.2. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Automatically navigate the robot to a specific goal without any high-cost sensors.</p></li>
+<li><p>Based on a single camera and use deep learning methods.</p></li>
+<li><p>Use Sim-to-Real technology to eliminate the gap between virtual environment and real world.</p></li>
+<li><p>Introduce Virtual guidance to entice the agent to move toward a specific direction.</p></li>
+<li><p>Use Reinforcement learning to avoid obstacles while driving through crowds of people.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="how_it_works.html" class="btn btn-neutral float-right" title="2. How It Works" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sim-to-Real Virtual Guidance for Robot Navigation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ken Lin
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

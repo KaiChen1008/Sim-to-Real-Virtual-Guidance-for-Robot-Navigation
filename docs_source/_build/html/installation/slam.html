@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. ORB-SLAM2 &mdash; Sim-to-Real: Virtual Guidance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Control Policy Virtual Environment" href="control_policy.html" />
+    <link rel="prev" title="2. ZED camera" href="camera.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Sim-to-Real: Virtual Guidance
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/how_it_works.html">2. How It Works</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ros.html">1. ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">2. ZED camera</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. ORB-SLAM2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-dependency-packages">3.1. Install Dependency Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-eigen3">3.2. Install Eigen3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-opencv-3-2">3.3. Install OpenCV 3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-pangolin">3.4. Install Pangolin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-doxygen">3.5. Install Doxygen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-orb-slam2">3.6. Install ORB-SLAM2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-configuration-file">3.7. Set up Configuration File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control_policy.html">4. Control Policy Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">5. Perception Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">6. Navigation Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/build_map.html">1. How to Build a Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/camera.html">2. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/perception.html">3. Perception Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/localization.html">4. Localization Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/planner.html">5. Planner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/control_policy.html">6. Control Policy Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/robot.html">7. Robot Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Trainning Procedure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../train/rl.html">1. How to Train an RL Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../train/segmentation.html">2. How to Train a Segmentation Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sim-to-Real: Virtual Guidance</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>ORB-SLAM2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installation/slam.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="orb-slam2">
+<h1><span class="section-number">3. </span>ORB-SLAM2<a class="headerlink" href="#orb-slam2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-dependency-packages">
+<h2><span class="section-number">3.1. </span>Install Dependency Packages<a class="headerlink" href="#install-dependency-packages" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install -y <span class="se">\</span>
+libboost-all-dev <span class="se">\</span>
+build-essential <span class="se">\</span>
+cmake <span class="se">\</span>
+libgtk2.0-dev <span class="se">\</span>
+pkg-config <span class="se">\</span>
+python-dev python-numpy <span class="se">\</span>
+libavcodec-dev libavformat-dev libswscale-dev <span class="se">\</span>
+libglew-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-eigen3">
+<h2><span class="section-number">3.2. </span>Install Eigen3<a class="headerlink" href="#install-eigen3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install libeigen3-dev
+<span class="nb">cd</span> /usr/include/eigen3
+sudo cp Eigen/ .. -R
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-opencv-3-2">
+<h2><span class="section-number">3.3. </span>Install OpenCV 3.2<a class="headerlink" href="#install-opencv-3-2" title="Permalink to this headline">¶</a></h2>
+<p>Specify the opencv version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CV3_RELEASE</span><span class="o">=</span><span class="m">3</span>.2.0
+</pre></div>
+</div>
+<p>Clone the opencv source code.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/opencv/opencv.git /tmp/opencv
+git clone https://github.com/opencv/opencv_contrib.git /tmp/opencv_contrib
+</pre></div>
+</div>
+<p>Install dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install -y liblapacke-dev
+sudo apt install -y libeigen3-dev
+</pre></div>
+</div>
+<p>Build and install opencv3.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp/opencv
+git checkout <span class="si">${</span><span class="nv">CV3_RELEASE</span><span class="si">}</span>
+<span class="nb">cd</span> /tmp/opencv_contrib
+git checkout <span class="si">${</span><span class="nv">CV3_RELEASE</span><span class="si">}</span>
+mkdir -p /tmp/opencv-<span class="si">${</span><span class="nv">CV3_RELEASE</span><span class="si">}</span>-build
+<span class="nb">cd</span> /tmp/opencv-<span class="si">${</span><span class="nv">CV3_RELEASE</span><span class="si">}</span>-build
+cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
+      -DWITH_CUDA<span class="o">=</span>OFF <span class="se">\</span>
+      -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local/opencv-<span class="si">${</span><span class="nv">CV3_RELEASE</span><span class="si">}</span> <span class="se">\</span>
+      -DOPENCV_EXTRA_MODULES_PATH<span class="o">=</span>/tmp/opencv_contrib/modules <span class="se">\</span>
+      /tmp/opencv
+sudo make install -j<span class="sb">`</span>proc<span class="sb">`</span>
+</pre></div>
+</div>
+<p>Clean up.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf /tmp/opencv /tmp/opencv_contrib
+sudo rm -rf /tmp/opencv-<span class="si">${</span><span class="nv">CV3_RELEASE</span><span class="si">}</span>-build
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-pangolin">
+<h2><span class="section-number">3.4. </span>Install Pangolin<a class="headerlink" href="#install-pangolin" title="Permalink to this headline">¶</a></h2>
+<p>Install dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install -y libglew-dev <span class="se">\</span>
+cmake <span class="se">\</span>
+libboost-dev <span class="se">\</span>
+libboost-thread-dev <span class="se">\</span>
+libboost-filesystem-dev <span class="se">\</span>
+libxkbcommon-dev
+</pre></div>
+</div>
+<p>Clone the source code.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/stevenlovegrove/Pangolin
+</pre></div>
+</div>
+<p>Build Pangolin.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+cmake ..
+make
+sudo make install -j<span class="sb">`</span>proc<span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-doxygen">
+<h2><span class="section-number">3.5. </span>Install Doxygen<a class="headerlink" href="#install-doxygen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y doxygen
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-orb-slam2">
+<h2><span class="section-number">3.6. </span>Install ORB-SLAM2<a class="headerlink" href="#install-orb-slam2" title="Permalink to this headline">¶</a></h2>
+<p>Please download our modification of ORB-SLAM2 which can restore maps, publish poses and construct both 2D and 3D maps simultaneously.</p>
+<p>Move the ORB-SLAM2 into <code class="docutils literal notranslate"><span class="pre">src</span></code> directory of your workspace.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp -r ORB_SLAM2 <span class="sb">`</span>path_to_workspace_src<span class="sb">`</span>
+</pre></div>
+</div>
+<p>Go into the ORB_SLAM2 directory and execute <code class="docutils literal notranslate"><span class="pre">build.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> <span class="sb">`</span>path_to_workspace<span class="sb">`</span>/devel/setup.bash
+<span class="nb">cd</span> ORB_SLAM2
+chmod +x build.sh
+./build.sh
+</pre></div>
+</div>
+<p>Build the ROS nodes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> <span class="sb">`</span>path_to_workspace<span class="sb">`</span>/devel/setup.bash
+chmod +x build_ros.sh
+./build_ros.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-configuration-file">
+<h2><span class="section-number">3.7. </span>Set up Configuration File<a class="headerlink" href="#set-up-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Specify parameters in a yaml file, including camera parameters, map file, etc.
+Camera parameters include fx, fy, kx and ky which can be found in the camera (or lens) documentation.</p>
+<p>We also provide our configuration file in <code class="docutils literal notranslate"><span class="pre">ORB_SLAM2/Examples/ROS/</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="control_policy.html" class="btn btn-neutral float-right" title="4. Control Policy Virtual Environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="camera.html" class="btn btn-neutral float-left" title="2. ZED camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ken Lin
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

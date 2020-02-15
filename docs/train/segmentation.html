@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. How to Train a Segmentation Model &mdash; Sim-to-Real: Virtual Guidance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. How to Train an RL Agent" href="rl.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Sim-to-Real: Virtual Guidance
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/how_it_works.html">2. How It Works</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/ros.html">1. ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/camera.html">2. ZED camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/slam.html">3. ORB-SLAM2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/control_policy.html">4. Control Policy Virtual Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/perception.html">5. Perception Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/navigation.html">6. Navigation Package</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/build_map.html">1. How to Build a Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/camera.html">2. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/perception.html">3. Perception Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/localization.html">4. Localization Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/planner.html">5. Planner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/control_policy.html">6. Control Policy Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/robot.html">7. Robot Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Trainning Procedure</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rl.html">1. How to Train an RL Agent</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. How to Train a Segmentation Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">2.1. Installation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sim-to-Real: Virtual Guidance</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>How to Train a Segmentation Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/train/segmentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-train-a-segmentation-model">
+<h1><span class="section-number">2. </span>How to Train a Segmentation Model<a class="headerlink" href="#how-to-train-a-segmentation-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2><span class="section-number">2.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Install Google Deeplab</strong></p>
+<p>We use <a class="reference external" href="https://github.com/tensorflow/models/tree/master/research/deeplab">Google DeepLab</a> to train our model.
+Follow the installation instructions <a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/installation.md">here</a> .
+<code class="docutils literal notranslate"><span class="pre">tensorflow-gpu==1.12.0</span></code> and <code class="docutils literal notranslate"><span class="pre">cuda</span> <span class="pre">version</span> <span class="pre">=</span> <span class="pre">9.0</span></code> is recommended if an effor occurs while installing.</p>
+<p><strong>Download the dataset</strong></p>
+<p>We use <a class="reference external" href="https://www.cityscapes-dataset.com/">Cityscapes Dataset</a> for outdoor training data,
+and <a class="reference external" href="https://groups.csail.mit.edu/vision/datasets/ADE20K/">ADE20K Dataset</a>  for indoor training data.
+To download Cityscapes, register the <a class="reference external" href="https://www.cityscapes-dataset.com/">website</a> and download manualy or use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget --keep-session-cookies --save-cookies<span class="o">=</span>cookies.txt --post-data <span class="s1">&#39;username=yourusername&amp;password=yourpassword&amp;submit=Login&#39;</span> https://www.cityscapes-dataset.com/login/
+wget --load-cookies cookies.txt --content-disposition https://www.cityscapes-dataset.com/file-handling/?packageID<span class="o">=</span><span class="m">1</span>,3
+</pre></div>
+</div>
+<p>where the package ID needed are <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>Follow the steps bellow to download ADE20K dataset.</p>
+<p>Run the dataset</p>
+<p>Steps to run Cityscapes can be found <a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/cityscapes.md">here</a> .</p>
+<p>Steps to run and download ADE20K can be found <a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/ade20k.md">here</a> .</p>
+<p>We use initial checkpoint m`obilenetv2_coco_cityscapes_trainfine &lt;<a class="reference external" href="http://download.tensorflow.org/models/deeplabv3_mnv2_cityscapes_train_2018_02_05.tar.gz">http://download.tensorflow.org/models/deeplabv3_mnv2_cityscapes_train_2018_02_05.tar.gz</a>&gt;`_
+provided by <a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.md">TensorFlow DeepLab Model Zoo</a> .</p>
+<p>Our parameters are</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python deeplab/train.py <span class="se">\</span>
+--logtostderr <span class="se">\</span>
+--training_number_of_steps<span class="o">=</span><span class="m">90000</span> <span class="se">\</span>
+--train_split<span class="o">=</span><span class="s2">&quot;train&quot;</span> <span class="se">\</span>
+--model_variant<span class="o">=</span><span class="s2">&quot;mobilenet_v2&quot;</span> <span class="se">\</span>
+--output_stride<span class="o">=</span><span class="m">16</span> <span class="se">\</span>
+--train_crop_size<span class="o">=</span><span class="m">321</span> <span class="se">\</span>
+--train_crop_size<span class="o">=</span><span class="m">321</span> <span class="se">\</span>
+--train_batch_size<span class="o">=</span><span class="m">16</span> <span class="se">\</span>
+--fine_tune_batch_norm<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+--dataset<span class="o">=</span><span class="s2">&quot;cityscapes&quot;</span> <span class="se">\</span>
+--tf_initial_checkpoint<span class="o">=</span><span class="si">${</span><span class="nv">PATH_TO_INITIAL_CHECKPOINT</span><span class="si">}</span> <span class="se">\</span>
+--train_logdir<span class="o">=</span><span class="si">${</span><span class="nv">PATH_TO_TRAIN_DIR</span><span class="si">}</span> <span class="se">\</span>
+--dataset_dir<span class="o">=</span><span class="si">${</span><span class="nv">PATH_TO_DATASET</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Train your own data</strong></p>
+<p>In addition to Cityscapes dataset, we also trained on images collected and annotated by students on our own campas. Add images to Cityscapes dataset in gtfine and leftImg8bit folders, and convert to TFRecord with convert_cityscapes.sh. Remember to convert annotation colors to trainIDs.
+A dictionary of trainIDs and anotation colors is shown below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Label</span> <span class="o">=</span> namedtuple<span class="o">(</span> <span class="s1">&#39;Label&#39;</span> , <span class="o">[</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;id&#39;</span>,<span class="s1">&#39;trainId&#39;</span>,<span class="s1">&#39;category&#39;</span>,<span class="s1">&#39;categoryId&#39;</span>,<span class="s1">&#39;hasInstances&#39;</span>,<span class="s1">&#39;ignoreInEval&#39;</span>,<span class="s1">&#39;color&#39;</span>,<span class="o">]</span> <span class="o">)</span>
+<span class="nv">labels</span> <span class="o">=</span> <span class="o">[</span>
+    <span class="c1">#       name                     id    trainId   category            catId     hasInstances   ignoreInEval   color</span>
+    Label<span class="o">(</span>  <span class="s1">&#39;unlabeled&#39;</span>            ,  <span class="m">0</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;ego vehicle&#39;</span>          ,  <span class="m">1</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;rectification border&#39;</span> ,  <span class="m">2</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;out of roi&#39;</span>           ,  <span class="m">3</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;static&#39;</span>               ,  <span class="m">4</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;dynamic&#39;</span>              ,  <span class="m">5</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span><span class="m">111</span>, <span class="m">74</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;ground&#39;</span>               ,  <span class="m">6</span> ,      <span class="m">255</span> , <span class="s1">&#39;void&#39;</span>            , <span class="m">0</span>       , False        , True         , <span class="o">(</span> <span class="m">81</span>,  <span class="m">0</span>, <span class="m">81</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;road&#39;</span>                 ,  <span class="m">7</span> ,        <span class="m">0</span> , <span class="s1">&#39;flat&#39;</span>            , <span class="m">1</span>       , False        , False        , <span class="o">(</span><span class="m">128</span>, <span class="m">64</span>,128<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;sidewalk&#39;</span>             ,  <span class="m">8</span> ,        <span class="m">1</span> , <span class="s1">&#39;flat&#39;</span>            , <span class="m">1</span>       , False        , False        , <span class="o">(</span><span class="m">244</span>, <span class="m">35</span>,232<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;parking&#39;</span>              ,  <span class="m">9</span> ,      <span class="m">255</span> , <span class="s1">&#39;flat&#39;</span>            , <span class="m">1</span>       , False        , True         , <span class="o">(</span><span class="m">250</span>,170,160<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;rail track&#39;</span>           , <span class="m">10</span> ,      <span class="m">255</span> , <span class="s1">&#39;flat&#39;</span>            , <span class="m">1</span>       , False        , True         , <span class="o">(</span><span class="m">230</span>,150,140<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;building&#39;</span>             , <span class="m">11</span> ,        <span class="m">2</span> , <span class="s1">&#39;construction&#39;</span>    , <span class="m">2</span>       , False        , False        , <span class="o">(</span> <span class="m">70</span>, <span class="m">70</span>, <span class="m">70</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;wall&#39;</span>                 , <span class="m">12</span> ,        <span class="m">3</span> , <span class="s1">&#39;construction&#39;</span>    , <span class="m">2</span>       , False        , False        , <span class="o">(</span><span class="m">102</span>,102,156<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;fence&#39;</span>                , <span class="m">13</span> ,        <span class="m">4</span> , <span class="s1">&#39;construction&#39;</span>    , <span class="m">2</span>       , False        , False        , <span class="o">(</span><span class="m">190</span>,153,153<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;guard rail&#39;</span>           , <span class="m">14</span> ,      <span class="m">255</span> , <span class="s1">&#39;construction&#39;</span>    , <span class="m">2</span>       , False        , True         , <span class="o">(</span><span class="m">180</span>,165,180<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;bridge&#39;</span>               , <span class="m">15</span> ,      <span class="m">255</span> , <span class="s1">&#39;construction&#39;</span>    , <span class="m">2</span>       , False        , True         , <span class="o">(</span><span class="m">150</span>,100,100<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;tunnel&#39;</span>               , <span class="m">16</span> ,      <span class="m">255</span> , <span class="s1">&#39;construction&#39;</span>    , <span class="m">2</span>       , False        , True         , <span class="o">(</span><span class="m">150</span>,120, <span class="m">90</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;pole&#39;</span>                 , <span class="m">17</span> ,        <span class="m">5</span> , <span class="s1">&#39;object&#39;</span>          , <span class="m">3</span>       , False        , False        , <span class="o">(</span><span class="m">153</span>,153,153<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;polegroup&#39;</span>            , <span class="m">18</span> ,      <span class="m">255</span> , <span class="s1">&#39;object&#39;</span>          , <span class="m">3</span>       , False        , True         , <span class="o">(</span><span class="m">153</span>,153,153<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;traffic light&#39;</span>        , <span class="m">19</span> ,        <span class="m">6</span> , <span class="s1">&#39;object&#39;</span>          , <span class="m">3</span>       , False        , False        , <span class="o">(</span><span class="m">250</span>,170, <span class="m">30</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;traffic sign&#39;</span>         , <span class="m">20</span> ,        <span class="m">7</span> , <span class="s1">&#39;object&#39;</span>          , <span class="m">3</span>       , False        , False        , <span class="o">(</span><span class="m">220</span>,220,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;vegetation&#39;</span>           , <span class="m">21</span> ,        <span class="m">8</span> , <span class="s1">&#39;nature&#39;</span>          , <span class="m">4</span>       , False        , False        , <span class="o">(</span><span class="m">107</span>,142, <span class="m">35</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;terrain&#39;</span>              , <span class="m">22</span> ,        <span class="m">9</span> , <span class="s1">&#39;nature&#39;</span>          , <span class="m">4</span>       , False        , False        , <span class="o">(</span><span class="m">152</span>,251,152<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;sky&#39;</span>                  , <span class="m">23</span> ,       <span class="m">10</span> , <span class="s1">&#39;sky&#39;</span>             , <span class="m">5</span>       , False        , False        , <span class="o">(</span> <span class="m">70</span>,130,180<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;person&#39;</span>               , <span class="m">24</span> ,       <span class="m">11</span> , <span class="s1">&#39;human&#39;</span>           , <span class="m">6</span>       , True         , False        , <span class="o">(</span><span class="m">220</span>, <span class="m">20</span>, <span class="m">60</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;rider&#39;</span>                , <span class="m">25</span> ,       <span class="m">12</span> , <span class="s1">&#39;human&#39;</span>           , <span class="m">6</span>       , True         , False        , <span class="o">(</span><span class="m">255</span>,  <span class="m">0</span>,  <span class="m">0</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;car&#39;</span>                  , <span class="m">26</span> ,       <span class="m">13</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , False        , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,142<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;truck&#39;</span>                , <span class="m">27</span> ,       <span class="m">14</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , False        , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>, <span class="m">70</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;bus&#39;</span>                  , <span class="m">28</span> ,       <span class="m">15</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , False        , <span class="o">(</span>  <span class="m">0</span>, <span class="m">60</span>,100<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;caravan&#39;</span>              , <span class="m">29</span> ,      <span class="m">255</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>, <span class="m">90</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;trailer&#39;</span>              , <span class="m">30</span> ,      <span class="m">255</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,110<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;train&#39;</span>                , <span class="m">31</span> ,       <span class="m">16</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , False        , <span class="o">(</span>  <span class="m">0</span>, <span class="m">80</span>,100<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;motorcycle&#39;</span>           , <span class="m">32</span> ,       <span class="m">17</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , False        , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,230<span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;bicycle&#39;</span>              , <span class="m">33</span> ,       <span class="m">18</span> , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , True         , False        , <span class="o">(</span><span class="m">119</span>, <span class="m">11</span>, <span class="m">32</span><span class="o">)</span> <span class="o">)</span>,
+    Label<span class="o">(</span>  <span class="s1">&#39;license plate&#39;</span>        , -1 ,       -1 , <span class="s1">&#39;vehicle&#39;</span>         , <span class="m">7</span>       , False        , True         , <span class="o">(</span>  <span class="m">0</span>,  <span class="m">0</span>,142<span class="o">)</span> <span class="o">)</span>,
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Using your trained model</strong></p>
+<p>After exporting your model, tar frozen_inference_graph.pb with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -zcvf mymodel.tar.gz frozen_inference_graph.pb
+</pre></div>
+</div>
+<p>An inference example can be found <cite>here &lt;https://colab.research.google.com/github/tensorflow/models/blob/master/research/deeplab/deeplab_demo.ipynb&gt;</cite> _.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="rl.html" class="btn btn-neutral float-left" title="1. How to Train an RL Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ken Lin
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
