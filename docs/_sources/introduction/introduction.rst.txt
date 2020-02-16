@@ -4,7 +4,7 @@ Introduction
 Intro.
 ----------------
 
-we propose a new modular framework for addressing the reality gap in the vision domain and navigating a robot via virtual signals. 
+We propose a new modular framework for addressing the reality gap in the vision domain and navigating a robot via virtual signals. 
 Our robot uses a single monocular camera for navigation, without assuming any usage of LIDAR, stereo camera, or odometry information from the robot. 
 
 Features
