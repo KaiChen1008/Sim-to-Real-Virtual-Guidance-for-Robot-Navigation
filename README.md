@@ -34,7 +34,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 
 ## Documentation
 
-See [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation-Documentation/).
+See [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/).
 
 ## Installation
 
