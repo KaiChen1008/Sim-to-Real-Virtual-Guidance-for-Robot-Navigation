@@ -4,6 +4,9 @@
 
 An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks.
 
+## Variant
+- [Mulitple Device Version](https://github.com/KaiChen1008/Vision-Based-Autonomous-Navigation-Robot)
+
 ## Features
 
 - Automatically navigate the robot to a specific goal without any high-cost sensors.
