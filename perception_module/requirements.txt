@@ -168,7 +168,7 @@ rqt-tf-tree==0.6.0
 rqt-top==0.4.8
 rqt-topic==0.4.10
 rqt-web==0.4.8
-rsa==4.0
+rsa==4.1
 rviz==1.13.6
 SecretStorage==2.3.1
 sensor-msgs==1.12.7
