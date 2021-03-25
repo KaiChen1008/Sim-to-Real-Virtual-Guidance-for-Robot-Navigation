@@ -17,7 +17,7 @@ protobuf==3.9.1
 pyparsing==2.4.2
 python-dateutil==2.8.0
 python-qt-binding==0.3.4
-PyYAML==5.1.2
+PyYAML==5.4
 resource-retriever==1.12.4
 rocon-app-manager==0.9.1
 rocon-app-utilities==0.9.1
