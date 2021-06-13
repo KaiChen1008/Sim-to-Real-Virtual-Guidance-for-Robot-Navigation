@@ -1,16 +1,16 @@
-# 🗺🤖🚘🕹📡 Sim-to-Real Virtual Guidance for Robot Navigation
+# 🤖🚘🕹 Sim-to-Real Virtual Guidance for Robot Navigation
 
 [![documentation_link](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/)
 
 An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks.
 
-### 🏅 This project won the second place in NVIDIA AI at the Edge Challenge.
+> 🏅 This project won the second place in NVIDIA AI at the Edge Challenge.
 
 
-## 💾 Variant
+### 💾 Variant
 - [Mulitple Device Version](https://github.com/KaiChen1008/Vision-Based-Autonomous-Navigation-Robot)
 
-## ⚡️⚡️⚡️ Features
+### ⚡️ Features
 
 - Automatically navigate the robot to a specific goal without any high-cost sensors.
 - Based on a single camera and use deep learning methods.
@@ -18,7 +18,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 - Introduce Virtual guidance to entice the agent to move toward a specific direction.
 - Use Reinforcement learning to avoid obstacles while driving through crowds of people.
 
-## 📎 Prerequisites
+### 📎 Prerequisites
 
 - Ubuntu 18.04
 - gcc5 or higher
@@ -27,7 +27,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 
 **Note: Both versions of Python required.**
 
-## How It Works
+### How It Works
 
 <!-- ![](https://i.imgur.com/fd0u5ws.png) -->
 
@@ -38,13 +38,14 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 5. The Control policy module then deploys deep reinforcement learning to control the agent. 
 6. For more details please refer to the [website](https://www.hackster.io/do-you-wanna-build-a-snowman/sim-to-real-virtual-guidance-for-robot-navigation-71e54a).
 
-## Documentation
+### Documentation
 
 See [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/).
 
-## Installation
+### Installation
 
-Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/installation/ros.html)
+You can find the instruction [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/installation/ros.html)
 
-## Usage
+### Usage
+
 Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/usage/build_map.html)
