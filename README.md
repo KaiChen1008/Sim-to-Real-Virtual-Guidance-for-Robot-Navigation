@@ -1,4 +1,4 @@
-# 🤖🚘🕹 Sim-to-Real Virtual Guidance for Robot Navigation
+# 🤖 Sim-to-Real Virtual Guidance for Robot Navigation
 
 [![documentation_link](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/)
 
