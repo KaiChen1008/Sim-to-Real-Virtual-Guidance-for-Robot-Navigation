@@ -1,13 +1,16 @@
-# Sim-to-Real Virtual Guidance for Robot Navigation
+# 🗺🤖🚘🕹📡 Sim-to-Real Virtual Guidance for Robot Navigation
 
 [![documentation_link](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/)
 
 An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks.
 
-## Variant
+### 🏅 This project won the second place in NVIDIA AI at the Edge Challenge.
+
+
+## 💾 Variant
 - [Mulitple Device Version](https://github.com/KaiChen1008/Vision-Based-Autonomous-Navigation-Robot)
 
-## Features
+## ⚡️⚡️⚡️ Features
 
 - Automatically navigate the robot to a specific goal without any high-cost sensors.
 - Based on a single camera and use deep learning methods.
@@ -15,7 +18,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 - Introduce Virtual guidance to entice the agent to move toward a specific direction.
 - Use Reinforcement learning to avoid obstacles while driving through crowds of people.
 
-## Prerequisites
+## 📎 Prerequisites
 
 - Ubuntu 18.04
 - gcc5 or higher
