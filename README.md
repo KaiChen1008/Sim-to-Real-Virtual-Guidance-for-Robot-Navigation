@@ -27,7 +27,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 
 **Note: Both versions of Python required.**
 
-### How It Works
+### 🔧 How It Works
 
 <!-- ![](https://i.imgur.com/fd0u5ws.png) -->
 
@@ -38,14 +38,14 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 5. The Control policy module then deploys deep reinforcement learning to control the agent. 
 6. For more details please refer to the [website](https://www.hackster.io/do-you-wanna-build-a-snowman/sim-to-real-virtual-guidance-for-robot-navigation-71e54a).
 
-### Documentation
+### 📖 Documentation
 
 See [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/).
 
-### Installation
+### 🔨 Installation
 
 You can find the instruction [here](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/installation/ros.html)
 
-### Usage
+### 🪛 Usage
 
 Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/usage/build_map.html)
