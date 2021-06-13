@@ -2,14 +2,13 @@
 
 [![documentation_link](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/)
 
-An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks.
+An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks. Two documentation are available on [official](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/) and [nice-look 😜](https://kaichen1008.github.io/Vision-Based-Autonomous-Navigation-Robot/).
 
 > 🏅 This project won the second place in NVIDIA AI at the Edge Challenge.
 
 
 ### 💾 Variant
 - [Mulitple Device Version](https://github.com/KaiChen1008/Vision-Based-Autonomous-Navigation-Robot)
-
 ### ⚡️ Features
 
 - Automatically navigate the robot to a specific goal without any high-cost sensors.
