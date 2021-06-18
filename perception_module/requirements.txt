@@ -182,7 +182,7 @@ system-service==0.3
 systemd-python==234
 tensorboard==1.13.1
 tensorflow-estimator==1.13.0
-tensorflow-gpu==1.13.1+nv19.3
+tensorflow-gpu==2.4.0rc4
 tensorrt==6.0.1.10
 termcolor==1.1.0
 testresources==2.0.1
