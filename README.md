@@ -4,7 +4,7 @@
 
 An effective, easy-to-implement, and low-cost modular framework for robot navigation tasks. Two documentations are available on [official](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/) and [nice-look 😜](https://kaichen1008.github.io/Vision-Based-Autonomous-Navigation-Robot/).
 
-> 🏅 This project won the second place in NVIDIA AI at the Edge Challenge.
+> 🏅 This project won the second place in NVIDIA AI at the Edge Challenge. 
 
 
 ### 💾 Variant
