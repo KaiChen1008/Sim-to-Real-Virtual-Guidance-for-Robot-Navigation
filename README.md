@@ -23,6 +23,7 @@ An effective, easy-to-implement, and low-cost modular framework for robot naviga
 - gcc5 or higher
 - Python 2.7.17 or higher
 - Python 3.5 or higher
+- Tensorflow 1.12
 
 **Note: Both versions of Python required.**
 
@@ -48,3 +49,4 @@ You can find the instruction [here](https://kaichen1008.github.io/Sim-to-Real-Vi
 ### 🪛 Usage
 
 Please refer to [Manual](https://kaichen1008.github.io/Sim-to-Real-Virtual-Guidance-for-Robot-Navigation/usage/build_map.html)
+
