@@ -194,7 +194,7 @@ tf2-py==0.6.5
 tf2-ros==0.6.5
 topic-tools==1.14.3
 Tubes==0.2.0
-Twisted==19.10.0
+Twisted==22.4.0
 typing==3.7.4.1
 ubuntu-drivers-common==0.0.0
 uff==0.6.5
