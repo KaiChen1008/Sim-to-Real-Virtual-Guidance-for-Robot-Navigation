@@ -96,7 +96,7 @@ smach==2.0.1
 smach-ros==2.0.1
 smclib==1.8.3
 tensorboard==1.7.0
-tensorflow==1.7.0
+tensorflow==2.7.2
 termcolor==1.1.0
 tf==1.11.9
 tf-conversions==1.11.9
