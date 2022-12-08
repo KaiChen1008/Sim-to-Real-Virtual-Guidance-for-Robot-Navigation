@@ -15,7 +15,7 @@ cachetools==4.0.0
 camera-calibration==1.13.0
 camera-calibration-parsers==1.11.13
 catkin==0.7.19
-certifi==2018.1.18
+certifi==2022.12.7
 characteristic==14.3.0
 chardet==3.0.4
 constantly==15.1.0
